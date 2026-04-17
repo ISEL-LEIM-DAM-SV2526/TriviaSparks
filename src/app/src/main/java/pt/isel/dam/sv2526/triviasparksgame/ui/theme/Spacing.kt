@@ -1,73 +1,124 @@
 package pt.isel.dam.sv2526.triviasparksgame.ui.theme
 import androidx.compose.ui.unit.dp
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SPACING TOKENS
-// Use these instead of hardcoded dp values throughout the app.
-// Consistent spacing creates visual rhythm across all screens.
-// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * TriviaSparks Design System — Layout Tokens
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * ⚠️ THIS FILE DEFINES ALL LAYOUT SCALES FOR THE APP
+ *
+ * These tokens ensure consistent spacing, sizing, and elevation across all UI.
+ * Never use raw dp values in UI — always reference these tokens.
+ *
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * SPACING SYSTEM
+ *
+ * Defines all spacing rules used for padding, margins, and layout gaps.
+ *
+ * Usage:
+ * - Spacing.cardPadding
+ * - Spacing.sectionGap
+ * - Spacing.screenEdge
+ */
 object Spacing {
-    val xs     =  4.dp   // icon-to-label gap, tight label spacing
-    val sm     =  8.dp   // badge internal padding, tight row gaps
-    val md     = 12.dp   // gap between cards in a list, chip gaps
-    val lg     = 16.dp   // card internal padding, row gaps inside cards
-    val xl     = 20.dp   // screen horizontal edge padding (standard)
-    val xxl    = 24.dp   // section gaps, card top/bottom padding on detail screens
-    val xxxl   = 32.dp   // large section separators, hero top padding
 
-    // Semantic aliases — use these in composables for self-documenting code
-    val screenEdge        = xl     // 20dp — horizontal padding on all screens
-    val cardPadding       = lg     // 16dp — internal card padding
-    val cardGap           = md     // 12dp — vertical gap between list cards
-    val sectionGap        = xxl    // 24dp — gap between screen sections
-    val iconToText        = lg     // 16dp — gap between icon container and text
-    val chipHorizontal    = 14.dp  // horizontal padding inside chips
-    val chipVertical      =  7.dp  // vertical padding inside chips
-    val badgeHorizontal   = 10.dp  // horizontal padding inside count badges
-    val badgeVertical     =  4.dp  // vertical padding inside count badges
+    // Base spacing scale
+    val xs  = 4.dp   // tight spacing (icons, labels)
+    val sm  = 8.dp   // small gaps (badges, chips)
+    val md  = 12.dp  // list gaps, compact spacing
+    val lg  = 16.dp  // standard padding (cards, rows)
+    val xl  = 20.dp  // screen horizontal padding
+    val xxl = 24.dp  // section spacing
+    val xxxl = 32.dp // large section breaks
+
+    // Semantic aliases (preferred in UI code)
+    val screenEdge      = xl
+    val cardPadding     = lg
+    val cardGap         = md
+    val sectionGap      = xxl
+    val iconToText      = lg
+
+    val chipHorizontal  = 14.dp
+    val chipVertical    = 7.dp
+
+    val badgeHorizontal = 10.dp
+    val badgeVertical   = 4.dp
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ELEVATION TOKENS
-// Used with Modifier.shadow() or Card elevation parameters.
-// The game theme uses subtle glow shadows rather than harsh elevation.
-// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * ELEVATION SYSTEM
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * Defines depth using shadow elevation values.
+ * TriviaSparks uses subtle elevation rather than heavy Material shadows.
+ *
+ * Usage:
+ * - Card(elevation = Elevation.medium)
+ * - Modifier.shadow(Elevation.high)
+ */
 object Elevation {
-    val none    =  0.dp  // flat surfaces — buttons, bottom navigation
-    val low     =  2.dp  // slight lift — stat pills, inner cards
-    val medium  =  4.dp  // cards on screen — main content cards
-    val high    =  8.dp  // floating elements — FAB, bottom sheets
-    val overlay = 16.dp  // dialogs, modal overlays
+
+    val none    = 0.dp   // flat UI elements
+    val low     = 2.dp   // subtle lift (pills, inner cards)
+    val medium  = 4.dp   // standard cards
+    val high    = 8.dp   // floating UI (FAB, bottom sheets)
+    val overlay = 16.dp  // dialogs and modals
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ICON SIZES
-// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * ICON SIZES
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * Standardized icon sizing for consistent visual rhythm.
+ *
+ * Usage:
+ * - Modifier.size(IconSize.md)
+ * - Toolbar icons, buttons, category icons
+ */
 object IconSize {
-    val xs   = 16.dp  // inline icons inside text, chip leading icons
-    val sm   = 20.dp  // button icons, stat pill icons
-    val md   = 24.dp  // standard toolbar and card icons
-    val lg   = 32.dp  // large FAB icons
-    val xl   = 40.dp  // icon containers in category rows
-    val xxl  = 48.dp  // quiz list card icon containers
-    val hero = 52.dp  // quiz detail screen hero icon
+
+    val xs   = 16.dp // inline text icons
+    val sm   = 20.dp // buttons, small indicators
+    val md   = 24.dp // standard icons
+    val lg   = 32.dp // large actions / FAB icons
+    val xl   = 40.dp // category / feature icons
+    val xxl  = 48.dp // card icon containers
+    val hero = 52.dp // large featured icons
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// COMPONENT SIZES
-// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * COMPONENT SIZE SYSTEM
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * Defines fixed sizes for reusable UI components.
+ *
+ * Usage:
+ * - Modifier.height(ComponentSize.buttonHeight)
+ * - Modifier.size(ComponentSize.avatarMedium)
+ */
 object ComponentSize {
-    val buttonHeight        = 52.dp   // standard button height
-    val buttonHeightLarge   = 56.dp   // HomeScreen Start Quiz button
-    val avatarSmall         = 40.dp   // leaderboard row avatar
-    val avatarMedium        = 48.dp   // HomeScreen header avatar
-    val avatarLarge         = 64.dp   // friend card avatar
-    val avatarHero          = 80.dp   // profile screen avatar
-    val iconContainerSmall  = 40.dp   // category row icon box
-    val iconContainerMedium = 48.dp   // quiz list card icon box
-    val iconContainerHero   = 100.dp  // quiz detail screen hero circle
-    val timerCircle         = 56.dp   // quiz screen countdown ring
-    val navBarHeight        = 80.dp   // bottom navigation bar
-    val topBarHeight        = 56.dp   // standard top app bar
-    val difficultyChipSquare = 90.dp  // category screen square difficulty chips
+
+    val buttonHeight      = 52.dp
+    val buttonHeightLarge = 56.dp
+
+    val avatarSmall  = 40.dp
+    val avatarMedium = 48.dp
+    val avatarLarge  = 64.dp
+    val avatarHero   = 80.dp
+
+    val iconContainerSmall  = 40.dp
+    val iconContainerMedium = 48.dp
+    val iconContainerHero   = 100.dp
+
+    val timerCircle = 56.dp
+
+    val navBarHeight = 80.dp
+    val topBarHeight = 56.dp
+
+    val difficultyChipSquare = 90.dp
 }

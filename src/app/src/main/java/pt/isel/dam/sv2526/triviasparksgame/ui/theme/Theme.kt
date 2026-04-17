@@ -10,129 +10,162 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * TriviaSparks Theme System — Final Entry Point
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * ⚠️ THIS IS THE MAIN THEME CONFIGURATION FILE
+ *
+ * This file defines:
+ * - Light & Dark Material3 color schemes
+ * - Extended design system colors (semantic + category palette)
+ * - Typography system
+ * - Shape system
+ *
+ * Wrap your app with:
+ *
+ * ```
+ * TriviaSparksTheme {
+ *     Screen()
+ * }
+ * ```
+ *
+ * All Material3 components automatically inherit these values.
+ *
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
 // ─────────────────────────────────────────────────────────────────────────────
-// LIGHT COLOUR SCHEME
-// Maps Dreamscape colour tokens to Material3 ColorScheme roles.
-// Every M3 component automatically uses the correct colour for its role.
+// LIGHT COLOR SCHEME
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Light theme color mapping.
+ *
+ * Maps TriviaSparks design tokens to Material3 roles.
+ * All UI components automatically use these values.
+ */
 private val LightColorScheme = lightColorScheme(
 
-    // Primary — violet
-    primary                  = Violet400,
-    onPrimary                = White,
-    primaryContainer         = Violet100,
-    onPrimaryContainer       = Violet800,
+    // Primary — Violet (brand color)
+    primary              = Violet400,
+    onPrimary            = White,
+    primaryContainer     = Violet100,
+    onPrimaryContainer   = Violet800,
 
-    // Secondary — coral peach
-    secondary                = Coral400,
-    onSecondary              = White,
-    secondaryContainer       = Coral100,
-    onSecondaryContainer     = Coral900,
+    // Secondary — Coral (XP / accents)
+    secondary            = Coral400,
+    onSecondary          = White,
+    secondaryContainer   = Coral100,
+    onSecondaryContainer = Coral900,
 
-    // Tertiary — mint green (easy / success semantic)
-    tertiary                 = MintGreen,
-    onTertiary               = White,
-    tertiaryContainer        = MintGreenContainer,
-    onTertiaryContainer      = Color(0xFF0A4033),
+    // Tertiary — Mint (success / easy state)
+    tertiary             = MintGreen,
+    onTertiary           = White,
+    tertiaryContainer    = MintGreenContainer,
+    onTertiaryContainer  = Color(0xFF0A4033),
 
-    // Error — strawberry red (hard difficulty / destructive actions)
-    error                    = Strawberry,
-    onError                  = White,
-    errorContainer           = StrawberryContainer,
-    onErrorContainer         = Color(0xFF5C001A),
+    // Error — Strawberry (hard / destructive)
+    error                = Strawberry,
+    onError              = White,
+    errorContainer       = StrawberryContainer,
+    onErrorContainer     = Color(0xFF5C001A),
 
-    // Background — lavender mist
-    background               = LavenderMist,
-    onBackground             = DeepGrape,
+    // Background — app base surface
+    background           = LavenderMist,
+    onBackground         = DeepGrape,
 
-    // Surface — card backgrounds
-    surface                  = SurfaceLight,
-    onSurface                = DeepGrape,
-    surfaceVariant           = SurfaceVariantLight,
-    onSurfaceVariant         = DustyViolet,
+    // Surface — cards, sheets
+    surface              = SurfaceLight,
+    onSurface            = DeepGrape,
+    surfaceVariant       = SurfaceVariantLight,
+    onSurfaceVariant     = DustyViolet,
 
-    // Inverse surface — used for Snackbar
-    inverseSurface           = DeepGrape,
-    inverseOnSurface         = SoftLavender,
-    inversePrimary           = Violet200,
+    // Inverse surfaces — snackbars, dark overlays
+    inverseSurface       = DeepGrape,
+    inverseOnSurface     = SoftLavender,
+    inversePrimary       = Violet200,
 
-    // Outline — borders and dividers
-    outline                  = LilacBorder,
-    outlineVariant           = LilacBorderSubtle,
+    // Borders
+    outline              = LilacBorder,
+    outlineVariant       = LilacBorderSubtle,
 
-    // Scrim — modal overlay
-    scrim                    = ScrimLight,
+    // Scrim — modal overlay dimming
+    scrim                = ScrimLight,
 
-    // Surface tones
-    surfaceTint              = Violet400
+    surfaceTint          = Violet400
 )
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// DARK COLOUR SCHEME
+// DARK COLOR SCHEME
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Dark theme color mapping.
+ *
+ * Optimised for low-light readability while preserving brand identity.
+ */
 private val DarkColorScheme = darkColorScheme(
 
-    // Primary — violet (unchanged — works well on dark)
-    primary                  = Violet400,
-    onPrimary                = White,
-    primaryContainer         = Color(0xFF3D3580),
-    onPrimaryContainer       = Violet100,
+    primary              = Violet400,
+    onPrimary            = White,
+    primaryContainer     = Color(0xFF3D3580),
+    onPrimaryContainer   = Violet100,
 
-    // Secondary — coral peach (unchanged)
-    secondary                = Coral400,
-    onSecondary              = White,
-    secondaryContainer       = Color(0xFF6B2D18),
-    onSecondaryContainer     = Coral100,
+    secondary            = Coral400,
+    onSecondary          = White,
+    secondaryContainer   = Color(0xFF6B2D18),
+    onSecondaryContainer = Coral100,
 
-    // Tertiary — mint green (unchanged)
-    tertiary                 = MintGreen,
-    onTertiary               = Color(0xFF003826),
-    tertiaryContainer        = Color(0xFF0A5240),
-    onTertiaryContainer      = MintGreenContainer,
+    tertiary             = MintGreen,
+    onTertiary           = Color(0xFF003826),
+    tertiaryContainer    = Color(0xFF0A5240),
+    onTertiaryContainer  = MintGreenContainer,
 
-    // Error — strawberry (unchanged)
-    error                    = Strawberry,
-    onError                  = White,
-    errorContainer           = Color(0xFF5C001A),
-    onErrorContainer         = StrawberryContainer,
+    error                = Strawberry,
+    onError              = White,
+    errorContainer       = Color(0xFF5C001A),
+    onErrorContainer     = StrawberryContainer,
 
-    // Background — midnight grape
-    background               = MidnightGrape,
-    onBackground             = SoftLavender,
+    background           = MidnightGrape,
+    onBackground         = SoftLavender,
 
-    // Surface — dark violet tiles
-    surface                  = SurfaceDark,
-    onSurface                = SoftLavender,
-    surfaceVariant           = SurfaceVariantDark,
-    onSurfaceVariant         = MutedViolet,
+    surface              = SurfaceDark,
+    onSurface            = SoftLavender,
+    surfaceVariant       = SurfaceVariantDark,
+    onSurfaceVariant     = MutedViolet,
 
-    // Inverse surface
-    inverseSurface           = SoftLavender,
-    inverseOnSurface         = DeepGrape,
-    inversePrimary           = Violet600,
+    inverseSurface       = SoftLavender,
+    inverseOnSurface     = DeepGrape,
+    inversePrimary       = Violet600,
 
-    // Outline
-    outline                  = DarkLilacBorder,
-    outlineVariant           = DarkLilacBorderSubtle,
+    outline              = DarkLilacBorder,
+    outlineVariant       = DarkLilacBorderSubtle,
 
-    // Scrim
-    scrim                    = ScrimDark,
-
-    // Surface tint — subtle violet overlay on elevated dark surfaces
-    surfaceTint              = Violet400
+    scrim                = ScrimDark,
+    surfaceTint          = Violet400
 )
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// EXTENDED COLOURS
-// Tokens that have no equivalent role in Material3 ColorScheme.
-// Passed via CompositionLocal so any composable can access them.
+// EXTENDED DESIGN SYSTEM COLORS
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Custom colors not covered by Material3 ColorScheme.
+ *
+ * Access via:
+ * MaterialTheme.triviasparks.easy
+ */
 data class DreamscapeExtendedColors(
 
-    // Difficulty colours — the semantic trio
+    // Difficulty system (semantic gameplay states)
     val easy: Color,
-    val easyOnLight: Color,        // darker variant for text on light backgrounds
-    val easyContainer: Color,      // chip/badge background fill
+    val easyOnLight: Color,
+    val easyContainer: Color,
 
     val medium: Color,
     val mediumOnLight: Color,
@@ -142,7 +175,7 @@ data class DreamscapeExtendedColors(
     val hardOnLight: Color,
     val hardContainer: Color,
 
-    // Category icon colours
+    // Category system (quiz classification colors)
     val categoryScience: Color,
     val categorySports: Color,
     val categoryHistory: Color,
@@ -152,80 +185,112 @@ data class DreamscapeExtendedColors(
     val categoryFilm: Color,
     val categoryGeography: Color,
 
-    // Score display — large chunky numbers
+    // Game feedback colors
     val scoreNumber: Color,
-
-    // XP reward colour
     val xpColour: Color,
 
-    // Card shadow colour — used in elevation/glow effects
+    // Decorative / elevation effects
     val cardGlow: Color
 )
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LIGHT EXTENDED COLORS
+// ─────────────────────────────────────────────────────────────────────────────
+
 private val LightExtendedColors = DreamscapeExtendedColors(
-    easy                 = MintGreen,
-    easyOnLight          = MintGreenOnLight,
-    easyContainer        = MintGreenContainer,
 
-    medium               = SunnyYellow,
-    mediumOnLight        = SunnyYellowOnLight,
-    mediumContainer      = SunnyYellowContainer,
+    easy               = MintGreen,
+    easyOnLight        = MintGreenOnLight,
+    easyContainer      = MintGreenContainer,
 
-    hard                 = Strawberry,
-    hardOnLight          = StrawberryOnLight,
-    hardContainer        = StrawberryContainer,
+    medium             = SunnyYellow,
+    mediumOnLight      = SunnyYellowOnLight,
+    mediumContainer    = SunnyYellowContainer,
 
-    categoryScience      = CategoryScience,
-    categorySports       = CategorySports,
-    categoryHistory      = CategoryHistory,
-    categoryTechnology   = CategoryTechnology,
-    categoryArt          = CategoryArt,
-    categoryMusic        = CategoryMusic,
-    categoryFilm         = CategoryFilm,
-    categoryGeography    = CategoryGeography,
+    hard               = Strawberry,
+    hardOnLight        = StrawberryOnLight,
+    hardContainer      = StrawberryContainer,
 
-    scoreNumber          = Violet400,
-    xpColour             = Coral400,
-    cardGlow             = Violet400
+    categoryScience    = CategoryScience,
+    categorySports     = CategorySports,
+    categoryHistory    = CategoryHistory,
+    categoryTechnology = CategoryTechnology,
+    categoryArt        = CategoryArt,
+    categoryMusic      = CategoryMusic,
+    categoryFilm       = CategoryFilm,
+    categoryGeography  = CategoryGeography,
+
+    scoreNumber        = Violet400,
+    xpColour           = Coral400,
+    cardGlow           = Violet400
 )
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DARK EXTENDED COLORS
+// ─────────────────────────────────────────────────────────────────────────────
 
 private val DarkExtendedColors = DreamscapeExtendedColors(
-    // In dark mode, use full-brightness colours directly —
-    // the dark background provides enough contrast without needing dimmer variants
-    easy                 = MintGreen,
-    easyOnLight          = MintGreen,        // full brightness on dark bg
-    easyContainer        = Color(0xFF0A5240),
 
-    medium               = SunnyYellow,
-    mediumOnLight        = SunnyYellow,
-    mediumContainer      = Color(0xFF4A3800),
+    easy               = MintGreen,
+    easyOnLight        = MintGreen,
+    easyContainer      = Color(0xFF0A5240),
 
-    hard                 = Strawberry,
-    hardOnLight          = Strawberry,
-    hardContainer        = Color(0xFF5C001A),
+    medium             = SunnyYellow,
+    mediumOnLight      = SunnyYellow,
+    mediumContainer    = Color(0xFF4A3800),
 
-    categoryScience      = CategoryScience,
-    categorySports       = CategorySports,
-    categoryHistory      = CategoryHistory,
-    categoryTechnology   = CategoryTechnology,
-    categoryArt          = CategoryArt,
-    categoryMusic        = CategoryMusic,
-    categoryFilm         = CategoryFilm,
-    categoryGeography    = CategoryGeography,
+    hard               = Strawberry,
+    hardOnLight        = Strawberry,
+    hardContainer      = Color(0xFF5C001A),
 
-    scoreNumber          = Violet400,
-    xpColour             = Coral400,
-    cardGlow             = Violet400
+    categoryScience    = CategoryScience,
+    categorySports     = CategorySports,
+    categoryHistory    = CategoryHistory,
+    categoryTechnology = CategoryTechnology,
+    categoryArt        = CategoryArt,
+    categoryMusic      = CategoryMusic,
+    categoryFilm       = CategoryFilm,
+    categoryGeography  = CategoryGeography,
+
+    scoreNumber        = Violet400,
+    xpColour           = Coral400,
+    cardGlow           = Violet400
 )
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // COMPOSITION LOCAL
 // ─────────────────────────────────────────────────────────────────────────────
-val LocalTriviaSparksColors = staticCompositionLocalOf { LightExtendedColors }
+
+/**
+ * Internal CompositionLocal storing extended theme colors.
+ */
+val LocalTriviaSparksColors =
+    staticCompositionLocalOf { LightExtendedColors }
+
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MAIN THEME COMPOSABLE
+// THEME ENTRY POINT
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Main TriviaSparks theme wrapper.
+ *
+ * Provides:
+ * - Material3 color scheme
+ * - Typography system
+ * - Shape system
+ * - Extended custom colors
+ *
+ * Usage:
+ * ```
+ * TriviaSparksTheme {
+ *     App()
+ * }
+ * ```
+ */
 @Composable
 fun TriviaSparksTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -239,20 +304,26 @@ fun TriviaSparksTheme(
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
-            typography  = TriviaSparksTypography,
-            shapes      = TriviaSparksShapes,
-            content     = content
+            typography = TriviaSparksTypography,
+            shapes = TriviaSparksShapes,
+            content = content
         )
     }
 }
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// CONVENIENCE ACCESSOR
-// Access extended colours anywhere with: MaterialTheme.dreamscape
-// e.g. MaterialTheme.dreamscape.easy
-//      MaterialTheme.dreamscape.scoreNumber
-//      MaterialTheme.dreamscape.categoryScience
+// EXTENDED ACCESSOR
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Access extended TriviaSparks colors anywhere in UI.
+ *
+ * Example:
+ * MaterialTheme.triviasparks.easy
+ * MaterialTheme.triviasparks.scoreNumber
+ * MaterialTheme.triviasparks.categoryScience
+ */
 val MaterialTheme.triviasparks: DreamscapeExtendedColors
     @Composable
     @ReadOnlyComposable

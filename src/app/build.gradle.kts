@@ -2,10 +2,29 @@ plugins {
     alias(libs.plugins.android.application)
     //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.dokka)
     alias(libs.plugins.ksp)               // ROOM + Hilt annotation processing
     //alias(libs.plugins.google.services)   // Week 8
     alias(libs.plugins.hilt)              // Week 10
 }
+
+/*dokka {
+    moduleName.set("TriviaSparks")
+
+    dokkaSourceSets {
+        named("main") {
+            includes.from("README.md")
+
+            sourceLink {
+                localDirectory.set(file("src/main/java"))
+               /* remoteUrl.set(
+                    uri("https://github.com/your-repo/triviasparks")
+                )
+                remoteLineSuffix.set("#L")*/
+            }
+        }
+    }
+}*/
 
 android {
     namespace = "pt.isel.dam.sv2526.triviasparksgame"
