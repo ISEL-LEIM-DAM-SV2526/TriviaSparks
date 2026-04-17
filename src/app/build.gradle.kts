@@ -58,11 +58,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    buildFeatures { compose = true }
+    buildFeatures { compose = true
+        viewBinding = true
+    }
 }
 
 dependencies {
 
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.activity)
     // ── Compose BOM ───────────────────────────────────────────────────────
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)

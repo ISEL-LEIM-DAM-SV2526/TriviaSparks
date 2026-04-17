@@ -121,4 +121,6 @@ object ComponentSize {
     val topBarHeight = 56.dp
 
     val difficultyChipSquare = 90.dp
+
+    val answerBadge = 36.dp
 }

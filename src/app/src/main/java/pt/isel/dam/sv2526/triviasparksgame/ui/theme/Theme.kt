@@ -94,7 +94,6 @@ private val LightColorScheme = lightColorScheme(
 
     // Scrim — modal overlay dimming
     scrim                = ScrimLight,
-
     surfaceTint          = Violet400
 )
 

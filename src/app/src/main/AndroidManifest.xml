@@ -11,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TriviaSparksGame">
+       <!-- <activity
+            android:name=".ui.screens.home.HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TriviaSparksGame" />-->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TriviaSparksGame" />
         <activity
             android:name=".ui.screens.home.HomeActivity"
             android:exported="true">
