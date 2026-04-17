@@ -1,4 +1,4 @@
-package pt.isel.dam.sv2526.triviasparksgame
+package pt.isel.dam.sv2526.triviasparksgame.ui.screens.home
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
